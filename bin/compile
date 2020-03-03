@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
+echo 'Installing pact_broker into:'
+echo $BUILD_DIR
+
 curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.70.2/pact-1.70.2-linux-x86_64.tar.gz
 tar xzf pact-1.70.2-linux-x86_64.tar.gz
