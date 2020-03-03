@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-echo 'heroku-cli'
+echo 'pact_broker-client'
 exit 0
