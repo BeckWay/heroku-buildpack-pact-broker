@@ -22,7 +22,7 @@ rm pact-1.70.2-linux-x86_64.tar.gz
 
 ls
 
-ln -s "../cli/bin/pact_broker" "$BUILD_DIR/.pact_broker/bin/pact_broker"
+ln -s "../cli/bin/pact_broker" "$BUILD_DIR/.pact_broker/cli/pact/bin/pact_broker"
 
 echo "-----> Installing profile.d script"
 
@@ -35,5 +35,5 @@ cat "$BUILD_DIR/.profile.d/pact_broker-cli.sh"
 
 chmod +x "$BUILD_DIR/.profile.d/pact_broker-cli.sh"
 
-"$BUILD_DIR/.pact_broker/bin/pact_broker" version
+"$BUILD_DIR/.pact_broker/cli/pact/pact_broker" version
 echo "-----> Pact Broker CLI installation done"
