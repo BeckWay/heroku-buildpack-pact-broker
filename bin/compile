@@ -7,7 +7,7 @@ set -x
 
 BUILD_DIR=$1
 
-echo "Installing pact_broker into: $BUILD_DIR"
+echo "-----> Installing pact_broker into: $BUILD_DIR"
 rm -rf "$BUILD_DIR/.pact_broker/cli"
 mkdir -p "$BUILD_DIR/.pact_broker/cli"
 mkdir -p "$BUILD_DIR/.pact_broker/bin"
@@ -18,20 +18,22 @@ pwd
 PACT_BROKER_CLI_URL="https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.70.2/pact-1.70.2-linux-x86_64.tar.gz"
 curl -LO $PACT_BROKER_CLI_URL
 tar xzf pact-1.70.2-linux-x86_64.tar.gz
+rm pact-1.70.2-linux-x86_64.tar.gz
 
 ls
 
-
 ln -s "../cli/bin/pact_broker" "$BUILD_DIR/.pact_broker/bin/pact_broker"
 
-echo "Installing profile.d script"
+echo "-----> Installing profile.d script"
 
 mkdir -p "$BUILD_DIR/.profile.d"
 cat <<EOF > "$BUILD_DIR/.profile.d/pact_broker-cli.sh"
-export PATH="\$PATH:\$HOME/.pact_broker/bin"
+export PATH="\$PATH:\$HOME/.pact_broker/cli/pact/bin"
 EOF
 
-chmod +x "$BUILD_DIR/.profile.d/pact_broker-cli.sh"u
+cat "$BUILD_DIR/.profile.d/pact_broker-cli.sh"
+
+chmod +x "$BUILD_DIR/.profile.d/pact_broker-cli.sh"
 
 "$BUILD_DIR/.pact_broker/bin/pact_broker" version
-puts_step "Pact Broker CLI installation done"
+echo "-----> Pact Broker CLI installation done"
