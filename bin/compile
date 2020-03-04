@@ -33,7 +33,9 @@ EOF
 
 cat "$BUILD_DIR/.profile.d/pact_broker-cli.sh"
 
+ls "$BUILD_DIR/.pact_broker/bin"
+
 chmod +x "$BUILD_DIR/.profile.d/pact_broker-cli.sh"
 
-"$BUILD_DIR/.pact_broker/cli/pact/pact_broker" version
+"$BUILD_DIR/.pact_broker/cli/pact/bin/pact-broker" version
 echo "-----> Pact Broker CLI installation done"
