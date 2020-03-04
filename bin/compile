@@ -13,9 +13,14 @@ mkdir -p "$BUILD_DIR/.pact_broker/cli"
 mkdir -p "$BUILD_DIR/.pact_broker/bin"
 cd "$BUILD_DIR/.pact_broker/cli"
 
+pwd
+
 PACT_BROKER_CLI_URL="https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.70.2/pact-1.70.2-linux-x86_64.tar.gz"
 curl -LO $PACT_BROKER_CLI_URL
 tar xzf pact-1.70.2-linux-x86_64.tar.gz
+
+ls
+
 
 ln -s "../cli/bin/pact_broker" "$BUILD_DIR/.pact_broker/bin/pact_broker"
 
